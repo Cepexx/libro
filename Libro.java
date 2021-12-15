@@ -14,6 +14,7 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -23,7 +24,8 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroPaginasLibro;
-        String numeroReferencia = "";
+        numeroReferencia = "";
+        vecesPrestado = 0;
     }
     
     // Getter para el autor del libro
@@ -46,7 +48,13 @@ public class Libro {
         return numeroReferencia;
     }
     
-    //Setter para el número de referencia del libro
+    // Getter para el número de prestaciones del libro
+    
+    public int getVecesPrestado(){
+        return vecesPrestado;
+    }
+    
+    // Setter para el número de referencia del libro
     
     public void setNumeroReferencia(String numeroReferenciaLibro){
         if(numeroReferenciaLibro.length() >= 3){
@@ -55,6 +63,11 @@ public class Libro {
             System.out.println("ERROR, número de referencia demasiado corto");
         }
         
+    }
+    
+    // Añade 1 al contador de prestaciones
+    public void libroPrestado(){
+        vecesPrestado++;
     }
     
     //  Imprime el autor del libro
@@ -74,7 +87,7 @@ public class Libro {
         if(numeroReferenciaDetalles == ""){
             numeroReferenciaDetalles = "ZZZ";
         }
-        detalles = "Autor: " + autor + " Título: " + titulo + " Número de páginas: " + numeroPaginas + " Número de referencia: " + numeroReferenciaDetalles;
+        detalles = "Autor: " + autor + " Título: " + titulo + " Número de páginas: " + numeroPaginas + " Número de referencia: " + numeroReferenciaDetalles + " Ha sido prestado " + vecesPrestado + " veces";
         System.out.println(detalles);
     }
     
@@ -85,7 +98,7 @@ public class Libro {
         if(numeroReferenciaDetalles == ""){
             numeroReferencia = "ZZZ";
         }
-        detalles = "Autor: " + autor + " Título: " + titulo + " Número de páginas: " + numeroPaginas + " Número de referencia: " + numeroReferenciaDetalles;
+        detalles = "Autor: " + autor + " Título: " + titulo + " Número de páginas: " + numeroPaginas + " Número de referencia: " + numeroReferenciaDetalles + " Ha sido prestado " + vecesPrestado + " veces";
         return detalles;
     }
 }
