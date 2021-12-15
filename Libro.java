@@ -13,6 +13,7 @@ public class Libro {
     private String autor;
     private String titulo;
     private int numeroPaginas;
+    private String numeroReferencia;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -22,6 +23,7 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroPaginasLibro;
+        String numeroReferencia = "";
     }
     
     // Getter para el autor del libro
@@ -38,6 +40,23 @@ public class Libro {
     public int getNumeroPaginas(){
         return numeroPaginas;
     }
+    
+    // Getter para el número de referencia del libro
+    public String getNumeroReferencia(){
+        return numeroReferencia;
+    }
+    
+    //Setter para el número de referencia del libro
+    
+    public void setNumeroReferencia(String numeroReferenciaLibro){
+        if(numeroReferenciaLibro.length() >= 3){
+            numeroReferencia = numeroReferenciaLibro;
+        }else{
+            System.out.println("ERROR, número de referencia demasiado corto");
+        }
+        
+    }
+    
     //  Imprime el autor del libro
     public void imprimeAutor(){
         System.out.println(autor);
@@ -51,14 +70,22 @@ public class Libro {
     // Imprime los detalles por pantalla
     public void imprimeDetalles(){
         String detalles;
-        detalles = "Autor: " + autor + " Título: " + titulo + " Número de páginas: " + numeroPaginas;
+        String numeroReferenciaDetalles = numeroReferencia;
+        if(numeroReferenciaDetalles == ""){
+            numeroReferenciaDetalles = "ZZZ";
+        }
+        detalles = "Autor: " + autor + " Título: " + titulo + " Número de páginas: " + numeroPaginas + " Número de referencia: " + numeroReferenciaDetalles;
         System.out.println(detalles);
     }
     
     // Devuelve un String con los detalles
     public String getDetalles(){
         String detalles;
-        detalles = "Autor: " + autor + " Título: " + titulo + " Número de páginas: " + numeroPaginas;
+        String numeroReferenciaDetalles = numeroReferencia;
+        if(numeroReferenciaDetalles == ""){
+            numeroReferencia = "ZZZ";
+        }
+        detalles = "Autor: " + autor + " Título: " + titulo + " Número de páginas: " + numeroPaginas + " Número de referencia: " + numeroReferenciaDetalles;
         return detalles;
     }
 }
